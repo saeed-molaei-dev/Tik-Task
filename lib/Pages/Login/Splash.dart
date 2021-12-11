@@ -11,7 +11,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   startTime() {
-    var _duration = Duration(milliseconds: 10000);
+    var _duration = Duration(milliseconds: 3000);
     return Timer(_duration, navigationPage);
   }
 
@@ -166,7 +166,6 @@ class _SplashState extends State<Splash> {
                 child: CircularProgressIndicator(
                   strokeWidth: 5,
                   color: Colors.red,
-                  valueColor: AlwaysStoppedAnimation(Colors.blue),
                 ),
               ),
             ],
