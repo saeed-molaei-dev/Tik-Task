@@ -96,41 +96,25 @@ class _SplashState extends State<Splash> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-              Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(5),
-                    width: (MediaQuery.of(context).size.width >
+              Image(
+                image: AssetImage('assets/Images/FaLogo.png'),
+                fit: BoxFit.contain,
+                width: MediaQuery.of(context).size.width >
+                        MediaQuery.of(context).size.height
+                    ? MediaQuery.of(context).size.width * 0.3
+                    : MediaQuery.of(context).size.width * 0.8,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Image(
+                image: AssetImage('assets/Images/Shadow.png'),
+                fit: BoxFit.contain,
+                width: (MediaQuery.of(context).size.width >
                             MediaQuery.of(context).size.height
                         ? MediaQuery.of(context).size.width * 0.3
-                        : MediaQuery.of(context).size.width * 0.8),
-                    height: (MediaQuery.of(context).size.width >
-                                MediaQuery.of(context).size.height
-                            ? MediaQuery.of(context).size.width * 0.3
-                            : MediaQuery.of(context).size.width * 0.8) /
-                        3,
-                    decoration: BoxDecoration(
-                        // color: Colors.black,
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset(0, 25),
-                            blurRadius: 100,
-                            color: MainProvider.red.withOpacity(0.11),
-                          ),
-                        ],
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(20, 10))),
-                    child: Text(' '),
-                  ),
-                  Image(
-                    image: AssetImage('assets/Images/FaLogo.png'),
-                    fit: BoxFit.contain,
-                    width: MediaQuery.of(context).size.width >
-                            MediaQuery.of(context).size.height
-                        ? MediaQuery.of(context).size.width * 0.3
-                        : MediaQuery.of(context).size.width * 0.8,
-                  ),
-                ],
+                        : MediaQuery.of(context).size.width * 0.8) *
+                    0.85,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,

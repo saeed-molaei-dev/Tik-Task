@@ -26,43 +26,102 @@ class _LoginState extends State<Login> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            color: MainProvider.WhiteColor,
-          ),
-          padding: EdgeInsets.all(16),
-          child: Center(
-            child: Column(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned(
+              top: -255,
+              right: -375,
+              child: Opacity(
+                opacity: 0.05,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  width: 650,
+                  height: 650,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.all(Radius.circular(650))),
+                  child: Text(' '),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: -600,
+              right: -550,
+              child: Container(
+                margin: EdgeInsets.all(5),
+                width: 900,
+                height: 900,
+                decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.all(Radius.circular(650))),
+                child: Text(' '),
+              ),
+            ),
+            Positioned(
+              bottom: -500,
+              left: -550,
+              child: Container(
+                margin: EdgeInsets.all(5),
+                width: 900,
+                height: 900,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.all(Radius.circular(650))),
+                child: Text(' '),
+              ),
+            ),
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-///
-///
-// ///
-// AnimatedContainer(
-//       duration: Duration(seconds: 5),
-//       margin: const EdgeInsets.all(16),
-//       decoration: focusNode.hasFocus ? BoxDecoration(boxShadow: [BoxShadow(blurRadius: 6)]) : null,
-//       child: Form(
-//         key: _formKey,
-//         child: TextFormField(
-//           focusNode: focusNode,
-//           decoration: InputDecoration(
-//               fillColor: Colors.white,
-//               hoverColor: Colors.white,
-//               filled: true,
-//               enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
-//               focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey, width: 1))),
-//         ),
-//       ),
-//     )
-///
-///
-///
-
+                Image(
+                  image: AssetImage('assets/Images/EnLogo.png'),
+                  fit: BoxFit.contain,
+                  width: 175,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                Image(
+                  image: AssetImage('assets/Images/FaLogo.png'),
+                  fit: BoxFit.contain,
+                  width: MediaQuery.of(context).size.width >
+                          MediaQuery.of(context).size.height
+                      ? MediaQuery.of(context).size.width * 0.3
+                      : MediaQuery.of(context).size.width * 0.8,
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Image(
+                  image: AssetImage('assets/Images/Shadow.png'),
+                  fit: BoxFit.contain,
+                  width: (MediaQuery.of(context).size.width >
+                              MediaQuery.of(context).size.height
+                          ? MediaQuery.of(context).size.width * 0.3
+                          : MediaQuery.of(context).size.width * 0.8) *
+                      0.85,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
                 /*PhoneNumber*/ Container(
                   width: MediaQuery.of(context).size.width * 0.5,
+                  decoration: ShapeDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black54, Colors.black26],
+                        begin: Alignment.topCenter,
+                        // end: Alignment(0, 0.9),
+                        end: Alignment.center,
+                        stops: [0.0000001, 0.3],
+                        tileMode: TileMode.clamp,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(
+                            MediaQuery.of(context).size.width * 0.5)),
+                      )),
                   child: TextField(
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.right,
@@ -75,19 +134,20 @@ class _LoginState extends State<Login> {
                         fontSize: 16, height: 1, color: MainProvider.TextColor),
                     decoration: InputDecoration(
                         filled: true,
-                        fillColor: Colors.white,
+                        // fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                          borderRadius: BorderRadius.all(Radius.circular(
+                              MediaQuery.of(context).size.width * 0.5)),
                         ),
                         hintText: 'شماره کاربری',
-                        hintStyle: TextStyle(fontSize: 16, color: Colors.grey)),
+                        hintStyle:
+                            TextStyle(fontSize: 16, color: Colors.white)),
                     controller: phoneNumber,
                     onChanged: (value) {
                       setState(() {
                         int phoneNumberLen0 = int.parse(phoneNumber.text[0]);
                         int phoneNumberLen1 = int.parse(phoneNumber.text[1]);
-
                         if ((phoneNumber.text).length == 11 &&
                             phoneNumberLen0 == 0 &&
                             phoneNumberLen1 == 9) {
@@ -219,9 +279,12 @@ class _LoginState extends State<Login> {
                             fontSize: 16,
                             decoration: TextDecoration.underline,
                             color: MainProvider.PrimaryColor))),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
               ],
             ),
-          ),
+          ],
         ),
       ),
     );

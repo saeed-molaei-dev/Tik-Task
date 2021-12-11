@@ -40,7 +40,7 @@ class _ToDoAppState extends State<ToDoApp> {
         primaryColor: MainProvider.PrimaryColor,
       ),
       // home: Directionality(textDirection: TextDirection.rtl, child: Splash()), //finaly
-      home: Directionality(textDirection: TextDirection.rtl, child: Splash()),
+      home: Directionality(textDirection: TextDirection.rtl, child: Login()),
     );
   }
 }
