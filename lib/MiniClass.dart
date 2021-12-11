@@ -1,7 +1,5 @@
 // ignore_for_file: file_names, unused_import, prefer_const_constructors, unnecessary_new, sized_box_for_whitespace
 
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';

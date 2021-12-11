@@ -1,7 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'dart:html';
-import 'dart:js_util';
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_web_libraries_in_flutter, unused_import, use_key_in_widget_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

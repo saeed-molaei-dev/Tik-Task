@@ -1,7 +1,8 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:round_2_start/Pages/Login/Login.dart';
+import 'package:round_2_start/Provider/MainProvider.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   startTime() {
-    var _duration = Duration(milliseconds: 3000);
+    var _duration = Duration(milliseconds: 10000);
     return Timer(_duration, navigationPage);
   }
 
@@ -40,31 +41,137 @@ class _SplashState extends State<Splash> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Center(
-              child: Column(
-                children: [
-                  Container(
-                      width: 200,
-                      height: 200,
-                      child: Image(
-                        image: AssetImage('assets/Images/Splash.png'),
-                        fit: BoxFit.cover,
-                      )),
-                      SizedBox(height: 15,),
-                  CircularProgressIndicator()
-                ],
+          Positioned(
+            top: -255,
+            right: -375,
+            child: Opacity(
+              opacity: 0.05,
+              child: Container(
+                margin: EdgeInsets.all(5),
+                width: 650,
+                height: 650,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(650))),
+                child: Text(' '),
               ),
             ),
-          ]),
-        ],
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        elevation: 0.0,
-        child: Container(
-          height: 50,
-          child: Column(
+          ),
+          Positioned(
+            bottom: -600,
+            right: -550,
+            child: Container(
+              margin: EdgeInsets.all(5),
+              width: 900,
+              height: 900,
+              decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.all(Radius.circular(650))),
+              child: Text(' '),
+            ),
+          ),
+          Positioned(
+            bottom: -500,
+            left: -550,
+            child: Container(
+              margin: EdgeInsets.all(5),
+              width: 900,
+              height: 900,
+              decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.all(Radius.circular(650))),
+              child: Text(' '),
+            ),
+          ),
+          Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              Image(
+                image: AssetImage('assets/Images/EnLogo.png'),
+                fit: BoxFit.contain,
+                width: 175,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(5),
+                    width: (MediaQuery.of(context).size.width >
+                            MediaQuery.of(context).size.height
+                        ? MediaQuery.of(context).size.width * 0.3
+                        : MediaQuery.of(context).size.width * 0.8),
+                    height: (MediaQuery.of(context).size.width >
+                                MediaQuery.of(context).size.height
+                            ? MediaQuery.of(context).size.width * 0.3
+                            : MediaQuery.of(context).size.width * 0.8) /
+                        3,
+                    decoration: BoxDecoration(
+                        // color: Colors.black,
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0, 25),
+                            blurRadius: 100,
+                            color: MainProvider.red.withOpacity(0.11),
+                          ),
+                        ],
+                        borderRadius:
+                            BorderRadius.all(Radius.elliptical(20, 10))),
+                    child: Text(' '),
+                  ),
+                  Image(
+                    image: AssetImage('assets/Images/FaLogo.png'),
+                    fit: BoxFit.contain,
+                    width: MediaQuery.of(context).size.width >
+                            MediaQuery.of(context).size.height
+                        ? MediaQuery.of(context).size.width * 0.3
+                        : MediaQuery.of(context).size.width * 0.8,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 3,
+                      color: Colors.grey[300],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'اپلیکیشن جامع لیست کارها و وظایف',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 3,
+                      color: Colors.grey[300],
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 50),
+                height: 32,
+                width: 32,
+                // color: Colors.pink,
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                  color: Colors.red,
+                  valueColor: AlwaysStoppedAnimation(Colors.blue),
+                ),
+              ),
+            ],
+          ),
+          Column(
             mainAxisAlignment: MainAxisAlignment.end,
             // ignore: prefer_const_literals_to_create_immutables
             children: [
@@ -72,11 +179,17 @@ class _SplashState extends State<Splash> {
                 'Made by',
                 style: TextStyle(fontSize: 12),
               ),
-              Text('Sam Company',
+              SizedBox(
+                height: 3,
+              ),
+              Text('SAM Company',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 16,
+              ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
