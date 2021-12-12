@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:round_2_start/Provider/MainProvider.dart';
 
 class ComingSoon extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class _ComingSoonState extends State<ComingSoon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffdce2f5),
+      backgroundColor: MainProvider.gray,
       body: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
@@ -20,7 +21,7 @@ class _ComingSoonState extends State<ComingSoon> {
             child: Center(
               child: Text(
                 'به زودی',
-                style: TextStyle(fontSize: 50, color: Color(0xff00002f)),
+                style: TextStyle(fontSize: 50, color: MainProvider.darkgray),
               ),
             ),
           ),

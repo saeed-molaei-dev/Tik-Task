@@ -6,6 +6,7 @@ import 'package:round_2_start/MiniClass.dart';
 import 'package:round_2_start/Pages/Home.dart';
 import 'package:round_2_start/Pages/Login/Register.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -108,55 +109,61 @@ class _LoginState extends State<Login> {
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 /*PhoneNumber*/ Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  decoration: ShapeDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black54, Colors.black26],
-                        begin: Alignment.topCenter,
-                        // end: Alignment(0, 0.9),
-                        end: Alignment.center,
-                        stops: [0.0000001, 0.3],
-                        tileMode: TileMode.clamp,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                  ),
+                  child: Neumorphic(
+                    style: NeumorphicStyle(
+                        depth: -5,
+                        shadowDarkColorEmboss: Colors.black,
+                        shadowLightColorEmboss: Colors.black54,
+                        color: Colors.grey,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(
+                                MediaQuery.of(context).size.width * 0.5))),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
+                        textAlign: TextAlign.right,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          LengthLimitingTextInputFormatter(11)
+                        ],
+                        style: TextStyle(
+                            fontSize: 16,
+                            height: 1,
+                            color: MainProvider.TextColor),
+                        decoration: InputDecoration(
+                            filled: true,
+                            // fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  MediaQuery.of(context).size.width * 0.5)),
+                            ),
+                            hintText: 'شماره کاربری',
+                            hintStyle:
+                                TextStyle(fontSize: 16, color: Colors.white)),
+                        controller: phoneNumber,
+                        onChanged: (value) {
+                          setState(() {
+                            int phoneNumberLen0 =
+                                int.parse(phoneNumber.text[0]);
+                            int phoneNumberLen1 =
+                                int.parse(phoneNumber.text[1]);
+                            if ((phoneNumber.text).length == 11 &&
+                                phoneNumberLen0 == 0 &&
+                                phoneNumberLen1 == 9) {
+                              counterNumber = true;
+                            } else {
+                              counterNumber = false;
+                            }
+                          });
+                        },
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(
-                            MediaQuery.of(context).size.width * 0.5)),
-                      )),
-                  child: TextField(
-                    textAlignVertical: TextAlignVertical.center,
-                    textAlign: TextAlign.right,
-                    keyboardType: TextInputType.phone,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      LengthLimitingTextInputFormatter(11)
-                    ],
-                    style: TextStyle(
-                        fontSize: 16, height: 1, color: MainProvider.TextColor),
-                    decoration: InputDecoration(
-                        filled: true,
-                        // fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(
-                              MediaQuery.of(context).size.width * 0.5)),
-                        ),
-                        hintText: 'شماره کاربری',
-                        hintStyle:
-                            TextStyle(fontSize: 16, color: Colors.white)),
-                    controller: phoneNumber,
-                    onChanged: (value) {
-                      setState(() {
-                        int phoneNumberLen0 = int.parse(phoneNumber.text[0]);
-                        int phoneNumberLen1 = int.parse(phoneNumber.text[1]);
-                        if ((phoneNumber.text).length == 11 &&
-                            phoneNumberLen0 == 0 &&
-                            phoneNumberLen1 == 9) {
-                          counterNumber = true;
-                        } else {
-                          counterNumber = false;
-                        }
-                      });
-                    },
+                    ),
                   ),
                 ),
                 Padding(
@@ -167,54 +174,71 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 /*Password*/ Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: TextField(
-                    textAlignVertical: TextAlignVertical.center,
-                    textAlign: TextAlign.right,
-                    obscureText: !_passwordVisible,
-                    keyboardType: TextInputType.phone,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      LengthLimitingTextInputFormatter(11)
-                    ],
-                    style: TextStyle(fontSize: 16, height: 1),
-                    decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _passwordVisible = !_passwordVisible;
-                            });
-                          },
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                        ),
-                        hintText: 'رمز ورود',
-                        hintStyle: TextStyle(fontSize: 16, color: Colors.grey)),
-                    controller: password,
-                    onChanged: (value) {
-                      setState(() {
-                        int phoneNumberLen0 = int.parse(password.text[0]);
-                        int phoneNumberLen1 = int.parse(password.text[1]);
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                  ),
+                  child: Neumorphic(
+                    style: NeumorphicStyle(
+                        depth: -5,
+                        shadowDarkColorEmboss: Colors.black,
+                        shadowLightColorEmboss: Colors.black54,
+                        color: Colors.grey,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(
+                                MediaQuery.of(context).size.width * 0.5))),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
+                        textAlign: TextAlign.right,
+                        obscureText: !_passwordVisible,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          LengthLimitingTextInputFormatter(11)
+                        ],
+                        style: TextStyle(fontSize: 16, height: 1),
+                        decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Theme.of(context).hintColor,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                            ),
+                            filled: true,
+                            fillColor: Colors.grey,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(16)),
+                            ),
+                            hintText: 'رمز ورود',
+                            hintStyle:
+                                TextStyle(fontSize: 16, color: Colors.white)),
+                        controller: password,
+                        onChanged: (value) {
+                          setState(() {
+                            int phoneNumberLen0 = int.parse(password.text[0]);
+                            int phoneNumberLen1 = int.parse(password.text[1]);
 
-                        if ((password.text).length == 11 &&
-                            phoneNumberLen0 == 0 &&
-                            phoneNumberLen1 == 9) {
-                          counterPassword = true;
-                        } else {
-                          counterPassword = false;
-                        }
-                      });
-                    },
+                            if ((password.text).length == 11 &&
+                                phoneNumberLen0 == 0 &&
+                                phoneNumberLen1 == 9) {
+                              counterPassword = true;
+                            } else {
+                              counterPassword = false;
+                            }
+                          });
+                        },
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
@@ -227,8 +251,7 @@ class _LoginState extends State<Login> {
                 /*Button*/ CustomButton(
                   title: 'ادامه',
                   onPressed: () {
-                    LoadingModal.show(context);
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
 
                     errorTextPhoneNumber = '';
                     errorTextPassword = '';
@@ -236,25 +259,28 @@ class _LoginState extends State<Login> {
                       setState(() {
                         errorTextPhoneNumber = 'شماره باید به درستی وارد شود';
                       });
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                     } else if (counterPassword == false) {
                       setState(() {
                         errorTextPassword =
                             'لطفا نسبت به رمز وارد شده اطمینان حاصل کنید';
                       });
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                     } else {
-                      MainProvider.UserName = phoneNumber.text;
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Home()));
+                      LoadingModal.show(context);
+                      Future.delayed(const Duration(milliseconds: 3000), () {
+                        MainProvider.UserName = phoneNumber.text;
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      });
                     }
                   },
                   color: counterNumber == true && counterPassword == true
-                      ? MainProvider.PrimaryColor
-                      : MainProvider.LightColor,
+                      ? MainProvider.red
+                      : MainProvider.gray,
                   textColor: counterNumber == true && counterPassword == true
-                      ? MainProvider.WhiteColor
-                      : MainProvider.PrimaryColor,
+                      ? MainProvider.White
+                      : MainProvider.darkgray,
                 ),
                 SizedBox(
                   height: 48,
@@ -267,7 +293,7 @@ class _LoginState extends State<Login> {
                           style: TextStyle(
                               fontSize: 16,
                               decoration: TextDecoration.underline,
-                              color: MainProvider.PrimaryColor))),
+                              color: MainProvider.darkgray))),
                 ),
                 TextButton(
                     onPressed: () {
@@ -278,7 +304,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                             fontSize: 16,
                             decoration: TextDecoration.underline,
-                            color: MainProvider.PrimaryColor))),
+                            color: MainProvider.darkgray))),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),

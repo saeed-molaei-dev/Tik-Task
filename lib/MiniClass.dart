@@ -28,12 +28,12 @@ class CustomButton extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all<Color>(color),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                        borderRadius: BorderRadius.circular(20),
                         side: BorderSide(color: color)))),
             onPressed: () => onPressed(),
             child: Text(
               title,
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: textColor, fontSize: 20),
             )),
       ),
     ]);
@@ -121,12 +121,11 @@ class LoadingModal {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                height: 20,
-                width: 20,
+                height: 32,
+                width: 32,
                 child: CircularProgressIndicator(
                   strokeWidth: 5.0,
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(MainProvider.PrimaryColor),
+                  valueColor: AlwaysStoppedAnimation<Color>(MainProvider.red),
                 ),
               ),
               SizedBox(
@@ -134,7 +133,7 @@ class LoadingModal {
               ),
               Text(
                 'لطفا کمی منتظر بمانید\nدر حال ارتباط با سرور',
-                style: TextStyle(color: MainProvider.PrimaryColor),
+                style: TextStyle(color: MainProvider.red),
               ),
             ]),
       ),
