@@ -39,8 +39,17 @@ class _ToDoAppState extends State<ToDoApp> {
         // fontFamily: 'iran_yekan',
         primaryColor: MainProvider.PrimaryColor,
       ),
-      // home: Directionality(textDirection: TextDirection.rtl, child: Splash()), //finaly
-      home: Directionality(textDirection: TextDirection.rtl, child: Register()),
+      home: Directionality(
+          textDirection: TextDirection.rtl, child: Splash()), //finaly
+      // home: Directionality(textDirection: TextDirection.rtl, child: Home()),
     );
   }
 }
+
+
+// بهش GlobalKey بده بعد 
+// WidgetsBinding!.instance.addPostFrameCallback((_) {
+//    RenderBox  renderBox =  gKey.currentContext.findRenderObject()  as RenderBox;
+
+// Size size =  renderBox.size;
+// })

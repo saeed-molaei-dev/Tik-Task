@@ -12,14 +12,12 @@ class ForTest extends StatefulWidget {
 }
 
 class _ForTestState extends State<ForTest> with SingleTickerProviderStateMixin {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: TextButton(
             onPressed: () async {
-
               print('ok');
             },
             child: Text('11')),

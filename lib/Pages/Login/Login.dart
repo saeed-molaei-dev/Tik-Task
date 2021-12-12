@@ -27,6 +27,7 @@ class _LoginState extends State<Login> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -277,10 +278,10 @@ class _LoginState extends State<Login> {
                   },
                   color: counterNumber == true && counterPassword == true
                       ? MainProvider.red
-                      : MainProvider.gray,
+                      : MainProvider.grey,
                   textColor: counterNumber == true && counterPassword == true
                       ? MainProvider.White
-                      : MainProvider.darkgray,
+                      : MainProvider.darkgrey,
                 ),
                 SizedBox(
                   height: 48,
@@ -293,7 +294,7 @@ class _LoginState extends State<Login> {
                           style: TextStyle(
                               fontSize: 16,
                               decoration: TextDecoration.underline,
-                              color: MainProvider.darkgray))),
+                              color: MainProvider.darkgrey))),
                 ),
                 TextButton(
                     onPressed: () {
@@ -304,7 +305,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                             fontSize: 16,
                             decoration: TextDecoration.underline,
-                            color: MainProvider.darkgray))),
+                            color: MainProvider.darkgrey))),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),

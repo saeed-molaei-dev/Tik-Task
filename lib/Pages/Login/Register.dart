@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:round_2_start/Pages/ComingSoon.dart';
 
 class Register extends StatefulWidget {
-
   @override
   _RegisterState createState() => _RegisterState();
 }

@@ -22,6 +22,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           centerTitle: true,
           title: Text('افزودن فعالیت  جدید'),

@@ -1,7 +1,11 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
+
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:round_2_start/Pages/Drawer/DrawerList.dart';
+import 'package:animated_rotation/animated_rotation.dart';
+import 'package:round_2_start/Provider/MainProvider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,10 +20,6 @@ class _HomeState extends State<Home> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('To Do App'),
-        ),
         body: Container(
           child: DrawerList(),
         ),

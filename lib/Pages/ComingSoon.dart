@@ -12,7 +12,7 @@ class _ComingSoonState extends State<ComingSoon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MainProvider.gray,
+      backgroundColor: MainProvider.grey,
       body: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
@@ -21,7 +21,7 @@ class _ComingSoonState extends State<ComingSoon> {
             child: Center(
               child: Text(
                 'به زودی',
-                style: TextStyle(fontSize: 50, color: MainProvider.darkgray),
+                style: TextStyle(fontSize: 50, color: MainProvider.darkgrey),
               ),
             ),
           ),

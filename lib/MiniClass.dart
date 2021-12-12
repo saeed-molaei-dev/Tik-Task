@@ -220,12 +220,12 @@ class ShowActivityModal {
 /*DrawerItems*/
 class DrawerItems extends StatefulWidget {
   bool enabledItem = true;
-  var leadingItem = Icons.info;
+  // var leadingItem = Icons.info;
   String textItem = '';
   final void Function() onTapItem;
   DrawerItems(
       {required this.enabledItem,
-      required this.leadingItem,
+      // required this.leadingItem,
       required this.textItem,
       required this.onTapItem});
   @override
@@ -244,12 +244,22 @@ class _DrawerItemsState extends State<DrawerItems> {
                   ? MainProvider.PrimaryColor
                   : MainProvider.LightColor),
         ),
-        leading: Icon(
-          widget.leadingItem,
-          color: widget.enabledItem == true
-              ? MainProvider.PrimaryColor
-              : MainProvider.LightColor,
+        leading: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Opacity(
+            opacity: widget.enabledItem == true ? 1 : 0.3,
+            child: Image(
+              image: AssetImage('assets/Images/DrawerIcon.png'),
+              fit: BoxFit.scaleDown,
+            ),
+          ),
         ),
+        //  Icon(
+        //   widget.leadingItem,
+        //   color: widget.enabledItem == true
+        //       ? MainProvider.PrimaryColor
+        //       : MainProvider.LightColor,
+        // ),
         onTap: () => widget.onTapItem());
   }
 }
