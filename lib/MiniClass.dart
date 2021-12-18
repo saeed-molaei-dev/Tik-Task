@@ -7,15 +7,16 @@ import 'package:round_2_start/Provider/MainProvider.dart';
 /*CustomButton*/
 class CustomButton extends StatelessWidget {
   final String title;
-  final void Function() onPressed;
   final Color color;
   final Color textColor;
+  final void Function() onPressed;
 
   CustomButton(
       {required this.title,
-      required this.onPressed,
       required this.color,
-      required this.textColor});
+      required this.textColor,
+      required this.onPressed,
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +126,8 @@ class LoadingModal {
                 width: 32,
                 child: CircularProgressIndicator(
                   strokeWidth: 5.0,
-                  valueColor: AlwaysStoppedAnimation<Color>(MainProvider.red),
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(MainProvider.RedColor),
                 ),
               ),
               SizedBox(
@@ -133,7 +135,7 @@ class LoadingModal {
               ),
               Text(
                 'لطفا کمی منتظر بمانید\nدر حال ارتباط با سرور',
-                style: TextStyle(color: MainProvider.red),
+                style: TextStyle(color: MainProvider.PrimaryColor),
               ),
             ]),
       ),
@@ -242,7 +244,7 @@ class _DrawerItemsState extends State<DrawerItems> {
           style: TextStyle(
               color: widget.enabledItem == true
                   ? MainProvider.PrimaryColor
-                  : MainProvider.LightColor),
+                  : MainProvider.SecondaryColor),
         ),
         leading: Padding(
           padding: EdgeInsets.all(8.0),
@@ -261,5 +263,58 @@ class _DrawerItemsState extends State<DrawerItems> {
         //       : MainProvider.LightColor,
         // ),
         onTap: () => widget.onTapItem());
+  }
+}
+
+/*3 Circles in background*/
+class BackgroundCircles extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+          top: -255,
+          right: -375,
+          child: Opacity(
+            opacity: 0.05,
+            child: Container(
+              margin: EdgeInsets.all(5),
+              width: 650,
+              height: 650,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.all(Radius.circular(650))),
+              child: Text(' '),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: -600,
+          right: -550,
+          child: Container(
+            margin: EdgeInsets.all(5),
+            width: 900,
+            height: 900,
+            decoration: BoxDecoration(
+                color: Colors.grey[350],
+                borderRadius: BorderRadius.all(Radius.circular(650))),
+            child: Text(' '),
+          ),
+        ),
+        Positioned(
+          bottom: -500,
+          left: -550,
+          child: Container(
+            margin: EdgeInsets.all(5),
+            width: 900,
+            height: 900,
+            decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.all(Radius.circular(650))),
+            child: Text(' '),
+          ),
+        ),
+      ],
+    );
   }
 }

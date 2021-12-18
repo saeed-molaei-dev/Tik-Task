@@ -41,7 +41,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                       BoxShadow(
                           color: MainProvider.PrimaryColor, spreadRadius: 3)
                     ],
-                    color: MainProvider.LightColor,
+                    color: MainProvider.SecondaryColor,
                     borderRadius: BorderRadius.circular(
                         MediaQuery.of(context).size.width * 0.17),
                   ),
@@ -62,7 +62,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                         BoxShadow(
                             color: MainProvider.PrimaryColor, spreadRadius: 3)
                       ],
-                      color: MainProvider.LightColor,
+                      color: MainProvider.SecondaryColor,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Container(
@@ -76,7 +76,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                         style: TextStyle(
                             fontSize: 16,
                             height: 1,
-                            color: MainProvider.TextColor),
+                            color: MainProvider.WhiteColor),
                         decoration: InputDecoration(
                             filled: true,
                             border: OutlineInputBorder(
@@ -86,7 +86,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                             ),
                             hintText: 'عنوان فرایند خود را وارد کنید',
                             hintStyle: TextStyle(
-                                fontSize: 16, color: MainProvider.TextColor)),
+                                fontSize: 16, color: MainProvider.WhiteColor)),
                         controller: TitleActivity,
                         // onChanged: (value) {
                         //   setState(() {});
@@ -101,7 +101,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                   boxShadow: [
                     BoxShadow(color: MainProvider.PrimaryColor, spreadRadius: 3)
                   ],
-                  color: MainProvider.LightColor,
+                  color: MainProvider.SecondaryColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Expanded(
@@ -113,7 +113,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                       style: TextStyle(
                           fontSize: 16,
                           height: 1,
-                          color: MainProvider.TextColor),
+                          color: MainProvider.WhiteColor),
                       decoration: InputDecoration(
                           filled: true,
                           border: OutlineInputBorder(
@@ -122,7 +122,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                           ),
                           hintText: 'توضیحات',
                           hintStyle: TextStyle(
-                              fontSize: 16, color: MainProvider.TextColor)),
+                              fontSize: 16, color: MainProvider.WhiteColor)),
                       controller: DescriptionActivity,
                       // onChanged: (value) {
                       //   setState(() {});
@@ -157,7 +157,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                       onPressed: () {},
                       color: 1 == true && 2 == true
                           ? MainProvider.PrimaryColor
-                          : MainProvider.LightColor,
+                          : MainProvider.SecondaryColor,
                       textColor: 1 == true && 2 == true
                           ? MainProvider.WhiteColor
                           : MainProvider.PrimaryColor,
@@ -175,7 +175,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                       onPressed: () {},
                       color: 1 == true && 2 == true
                           ? MainProvider.PrimaryColor
-                          : MainProvider.LightColor,
+                          : MainProvider.SecondaryColor,
                       textColor: 1 == true && 2 == true
                           ? MainProvider.WhiteColor
                           : MainProvider.PrimaryColor,
@@ -208,7 +208,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                         },
                         color: 1 == true && 2 == true
                             ? MainProvider.PrimaryColor
-                            : MainProvider.LightColor,
+                            : MainProvider.SecondaryColor,
                         textColor: 1 == true && 2 == true
                             ? MainProvider.WhiteColor
                             : MainProvider.PrimaryColor,
@@ -226,7 +226,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                         onPressed: () {},
                         color: 1 == true && 2 == true
                             ? MainProvider.PrimaryColor
-                            : MainProvider.LightColor,
+                            : MainProvider.SecondaryColor,
                         textColor: 1 == true && 2 == true
                             ? MainProvider.WhiteColor
                             : MainProvider.PrimaryColor,

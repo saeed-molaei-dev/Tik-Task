@@ -31,48 +31,7 @@ class _LoginState extends State<Login> {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            Positioned(
-              top: -255,
-              right: -375,
-              child: Opacity(
-                opacity: 0.05,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  width: 650,
-                  height: 650,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.all(Radius.circular(650))),
-                  child: Text(' '),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: -600,
-              right: -550,
-              child: Container(
-                margin: EdgeInsets.all(5),
-                width: 900,
-                height: 900,
-                decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.all(Radius.circular(650))),
-                child: Text(' '),
-              ),
-            ),
-            Positioned(
-              bottom: -500,
-              left: -550,
-              child: Container(
-                margin: EdgeInsets.all(5),
-                width: 900,
-                height: 900,
-                decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.all(Radius.circular(650))),
-                child: Text(' '),
-              ),
-            ),
+            BackgroundCircles(),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,7 +54,7 @@ class _LoginState extends State<Login> {
                       : MediaQuery.of(context).size.width * 0.8,
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 8,
                 ),
                 Image(
                   image: AssetImage('assets/Images/Shadow.png'),
@@ -107,7 +66,7 @@ class _LoginState extends State<Login> {
                       0.85,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
+                  height: MediaQuery.of(context).size.height * 0.07,
                 ),
                 /*PhoneNumber*/ Container(
                   decoration: BoxDecoration(
@@ -123,8 +82,9 @@ class _LoginState extends State<Login> {
                             BorderRadius.circular(
                                 MediaQuery.of(context).size.width * 0.5))),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.7,
                       child: TextField(
+                        autofocus: true,
                         textAlignVertical: TextAlignVertical.center,
                         textAlign: TextAlign.right,
                         keyboardType: TextInputType.phone,
@@ -133,21 +93,25 @@ class _LoginState extends State<Login> {
                           LengthLimitingTextInputFormatter(11)
                         ],
                         style: TextStyle(
-                            fontSize: 16,
-                            height: 1,
-                            color: MainProvider.TextColor),
+                          fontSize: 20,
+                          color: MainProvider.BlackColor,
+                          decorationColor: MainProvider.BlackColor,
+                        ),
+                        cursorColor: MainProvider.RedColor,
                         decoration: InputDecoration(
                             filled: true,
-                            // fillColor: Colors.white,
+                            fillColor: MainProvider.TertiaryColor,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(Radius.circular(
                                   MediaQuery.of(context).size.width * 0.5)),
                             ),
                             hintText: 'شماره کاربری',
-                            hintStyle:
-                                TextStyle(fontSize: 16, color: Colors.white)),
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                color: MainProvider.SecondaryColor)),
                         controller: phoneNumber,
+                        onSubmitted: (value) {},
                         onChanged: (value) {
                           setState(() {
                             int phoneNumberLen0 =
@@ -168,7 +132,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.only(bottom: 12),
                   child: Text(
                     errorTextPhoneNumber,
                     style: TextStyle(color: Colors.red, fontSize: 12),
@@ -188,7 +152,7 @@ class _LoginState extends State<Login> {
                             BorderRadius.circular(
                                 MediaQuery.of(context).size.width * 0.5))),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.7,
                       child: TextField(
                         textAlignVertical: TextAlignVertical.center,
                         textAlign: TextAlign.right,
@@ -198,8 +162,13 @@ class _LoginState extends State<Login> {
                           FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           LengthLimitingTextInputFormatter(11)
                         ],
-                        style: TextStyle(fontSize: 16, height: 1),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: MainProvider.BlackColor,
+                          decorationColor: MainProvider.BlackColor,
+                        ),
                         decoration: InputDecoration(
+                            filled: true,
                             suffixIcon: IconButton(
                               icon: Icon(
                                 _passwordVisible
@@ -213,25 +182,26 @@ class _LoginState extends State<Login> {
                                 });
                               },
                             ),
-                            filled: true,
-                            fillColor: Colors.grey,
+                            fillColor: MainProvider.TertiaryColor,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(16)),
                             ),
                             hintText: 'رمز ورود',
-                            hintStyle:
-                                TextStyle(fontSize: 16, color: Colors.white)),
+                            hintStyle: TextStyle(
+                                fontSize: 20,
+                                color: MainProvider.SecondaryColor)),
                         controller: password,
                         onChanged: (value) {
                           setState(() {
-                            int phoneNumberLen0 = int.parse(password.text[0]);
-                            int phoneNumberLen1 = int.parse(password.text[1]);
+                            // int phoneNumberLen0 = int.parse(password.text[0]);
+                            // int phoneNumberLen1 = int.parse(password.text[1]);
 
-                            if ((password.text).length == 11 &&
-                                phoneNumberLen0 == 0 &&
-                                phoneNumberLen1 == 9) {
+                            if ((password.text).length == 11
+                                //&& phoneNumberLen0 == 0 &&
+                                // phoneNumberLen1 == 9
+                                ) {
                               counterPassword = true;
                             } else {
                               counterPassword = false;
@@ -243,14 +213,20 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.only(bottom: 12),
                   child: Text(
                     errorTextPassword,
                     style: TextStyle(color: Colors.red, fontSize: 12),
                   ),
                 ),
                 /*Button*/ CustomButton(
-                  title: 'ادامه',
+                  title: 'تأیید',
+                  color: counterNumber == true && counterPassword == true
+                      ? MainProvider.GreenColor
+                      : MainProvider.RedColor,
+                  textColor: counterNumber == true && counterPassword == true
+                      ? MainProvider.WhiteColor
+                      : MainProvider.WhiteColor,
                   onPressed: () {
                     // Navigator.pop(context);
 
@@ -258,7 +234,8 @@ class _LoginState extends State<Login> {
                     errorTextPassword = '';
                     if (counterNumber == false) {
                       setState(() {
-                        errorTextPhoneNumber = 'شماره باید به درستی وارد شود';
+                        errorTextPhoneNumber =
+                            'شماره تماس باید به درستی وارد شود';
                       });
                       // Navigator.pop(context);
                     } else if (counterPassword == false) {
@@ -269,45 +246,36 @@ class _LoginState extends State<Login> {
                       // Navigator.pop(context);
                     } else {
                       LoadingModal.show(context);
-                      Future.delayed(const Duration(milliseconds: 3000), () {
+                      Future.delayed(const Duration(milliseconds: 5000), () {
                         MainProvider.UserName = phoneNumber.text;
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Home()));
                       });
                     }
                   },
-                  color: counterNumber == true && counterPassword == true
-                      ? MainProvider.red
-                      : MainProvider.grey,
-                  textColor: counterNumber == true && counterPassword == true
-                      ? MainProvider.White
-                      : MainProvider.darkgrey,
                 ),
                 SizedBox(
-                  height: 48,
+                  height: MediaQuery.of(context).size.height * 0.09,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: TextButton(
-                      onPressed: () {},
-                      child: Text('فراموشی رمز عبور',
-                          style: TextStyle(
-                              fontSize: 16,
-                              decoration: TextDecoration.underline,
-                              color: MainProvider.darkgrey))),
-                ),
-                TextButton(
+                /*ForgetPassword*/ TextButton(
+                    onPressed: () {},
+                    child: Text('فراموشی رمز عبور',
+                        style: TextStyle(
+                            fontSize: 18,
+                            decoration: TextDecoration.underline,
+                            color: MainProvider.PrimaryColor))),
+                /*Register*/ TextButton(
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Register()));
                     },
                     child: Text('ثبت نام',
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             decoration: TextDecoration.underline,
-                            color: MainProvider.darkgrey))),
+                            color: MainProvider.PrimaryColor))),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
               ],
             ),

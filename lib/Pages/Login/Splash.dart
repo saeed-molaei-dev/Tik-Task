@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:round_2_start/MiniClass.dart';
 import 'package:round_2_start/Pages/Login/Login.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
 
@@ -11,7 +12,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   startTime() {
-    var _duration = Duration(milliseconds: 3000);
+    var _duration = Duration(milliseconds: 5000);
     return Timer(_duration, navigationPage);
   }
 
@@ -37,52 +38,11 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: MainProvider.WhiteColor,
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned(
-            top: -255,
-            right: -375,
-            child: Opacity(
-              opacity: 0.05,
-              child: Container(
-                margin: EdgeInsets.all(5),
-                width: 650,
-                height: 650,
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(Radius.circular(650))),
-                child: Text(' '),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: -600,
-            right: -550,
-            child: Container(
-              margin: EdgeInsets.all(5),
-              width: 900,
-              height: 900,
-              decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.all(Radius.circular(650))),
-              child: Text(' '),
-            ),
-          ),
-          Positioned(
-            bottom: -500,
-            left: -550,
-            child: Container(
-              margin: EdgeInsets.all(5),
-              width: 900,
-              height: 900,
-              decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.all(Radius.circular(650))),
-              child: Text(' '),
-            ),
-          ),
+          BackgroundCircles(),
           Column(
             children: [
               SizedBox(
@@ -124,7 +84,7 @@ class _SplashState extends State<Splash> {
                   Expanded(
                     child: Container(
                       height: 3,
-                      color: Colors.grey[300],
+                      color: MainProvider.SecondaryColor,
                     ),
                   ),
                   Padding(
@@ -137,7 +97,7 @@ class _SplashState extends State<Splash> {
                   Expanded(
                     child: Container(
                       height: 3,
-                      color: Colors.grey[300],
+                      color: MainProvider.SecondaryColor,
                     ),
                   ),
                 ],
@@ -146,10 +106,9 @@ class _SplashState extends State<Splash> {
                 margin: EdgeInsets.only(top: 50),
                 height: 32,
                 width: 32,
-                // color: Colors.pink,
                 child: CircularProgressIndicator(
                   strokeWidth: 5,
-                  color: Colors.red,
+                  color: MainProvider.RedColor,
                 ),
               ),
             ],
@@ -160,13 +119,21 @@ class _SplashState extends State<Splash> {
             children: [
               Text(
                 'Made by',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(
+                    letterSpacing: 1.05,
+                    fontFamily: 'PokerHunters',
+                    fontSize: 12),
               ),
               SizedBox(
                 height: 3,
               ),
               Text('SAM Company',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    fontSize: 16,
+                    letterSpacing: 1.05,
+                    fontFamily: 'PokerHunters',
+                    fontWeight: FontWeight.bold,
+                  )),
               SizedBox(
                 height: 16,
               ),

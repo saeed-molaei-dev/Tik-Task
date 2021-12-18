@@ -36,12 +36,12 @@ class _ToDoAppState extends State<ToDoApp> {
       title: 'To Do App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // fontFamily: 'iran_yekan',
+        fontFamily: 'BKoodak',
         primaryColor: MainProvider.PrimaryColor,
       ),
       home: Directionality(
           textDirection: TextDirection.rtl, child: Splash()), //finaly
-      // home: Directionality(textDirection: TextDirection.rtl, child: Home()),
+      // home: Directionality(textDirection: TextDirection.rtl, child: Login()),
     );
   }
 }
