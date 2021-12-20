@@ -1,8 +1,11 @@
 // ignore_for_file: file_names, unnecessary_new, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:round_2_start/MiniClass.dart';
+import 'package:round_2_start/Pages/ComingSoon.dart';
 import 'package:round_2_start/Pages/Home.dart';
+import 'package:round_2_start/Pages/Login/Login.dart';
 import 'package:round_2_start/Pages/Menu/AddNewActivity.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
 import 'package:animated_rotation/animated_rotation.dart' as prefix;
@@ -23,28 +26,53 @@ class _DrawerListState extends State<DrawerList> {
           resizeToAvoidBottomInset: false,
           drawer: Drawer(
             child: ListView(
-              children: <Widget>[
-                Container(
-                    child: DrawerHeader(
-                        child: Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      padding: EdgeInsets.only(bottom: 8),
-                      // color: Colors.red,
-                      child: Image(
-                        image: AssetImage('assets/Images/UserDefaultImage.png'),
-                        fit: BoxFit.scaleDown,
-                      ),
-                    ),
-                    Text('hi ' + MainProvider.UserName)
-                  ],
-                ))),
-                Container(
+              children: [
+                /*User Config*/ DrawerHeader(
+                    margin: EdgeInsets.only(bottom: 24, top: 8),
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: [
+                        Column(
+                          children: [
+                            Image(
+                              image: AssetImage(
+                                  'assets/Images/UserDefaultImage.png'),
+                              fit: BoxFit.contain,
+                              width: MediaQuery.of(context).size.width * 0.15,
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Text('hi ' + MainProvider.UserName),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Login()));
+                                  },
+                                  padding: EdgeInsets.all(0),
+                                  icon: Icon(Icons.logout),
+                                  color: MainProvider.RedColor,
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )),
+                /*Drawer Items*/ Container(
                   child: Column(children: <Widget>[
                     DrawerItems(
                       enabledItem: true,
-                      // leadingItem: Icons.data_saver_on,
                       textItem: 'افزودن فعالیت جدید',
                       onTapItem: () {
                         Navigator.push(
@@ -54,12 +82,51 @@ class _DrawerListState extends State<DrawerList> {
                       },
                     ),
                     DrawerItems(
+                      enabledItem: true,
+                      textItem: 'آیتم فعال',
+                      onTapItem: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ComingSoon()));
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Divider(
+                        color: MainProvider.PrimaryColor,
+                      ),
+                    ),
+                    DrawerItems(
                       enabledItem: false,
-                      // leadingItem: Icons.data_saver_on,
                       textItem: 'آیتم غیرفعال',
                       onTapItem: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'این آیتم تا اطلاع ثانوی غیرفعال است',
+                                    style: TextStyle(
+                                        color: MainProvider.TertiaryColor),
+                                  ),
+                                  Icon(
+                                    Icons.sentiment_satisfied_alt_outlined,
+                                    color: MainProvider.TertiaryColor,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) => Home()));
                       },
                     ),
                   ]),

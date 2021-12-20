@@ -12,7 +12,7 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   startTime() {
-    var _duration = Duration(milliseconds: 5000);
+    var _duration = Duration(milliseconds: 3500);
     return Timer(_duration, navigationPage);
   }
 

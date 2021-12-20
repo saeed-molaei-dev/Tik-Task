@@ -11,12 +11,12 @@ class CustomButton extends StatelessWidget {
   final Color textColor;
   final void Function() onPressed;
 
-  CustomButton(
-      {required this.title,
-      required this.color,
-      required this.textColor,
-      required this.onPressed,
-      });
+  CustomButton({
+    required this.title,
+    required this.color,
+    required this.textColor,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -238,7 +238,7 @@ class _DrawerItemsState extends State<DrawerItems> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        enabled: widget.enabledItem,
+        // enabled: widget.enabledItem, /*enabled or disabled Item*/
         title: Text(
           widget.textItem,
           style: TextStyle(

@@ -227,7 +227,7 @@ class _LoginState extends State<Login> {
                       // Navigator.pop(context);
                     } else {
                       LoadingModal.show(context);
-                      Future.delayed(const Duration(milliseconds: 5000), () {
+                      Future.delayed(const Duration(milliseconds: 3500), () {
                         MainProvider.UserName = UserName.text;
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Home()));
