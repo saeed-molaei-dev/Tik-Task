@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:round_2_start/Pages/ComingSoon.dart';
+import 'package:round_2_start/Pages/Drawer/DrawerList.dart';
 import 'package:round_2_start/Pages/Home.dart';
 import 'package:round_2_start/Pages/Login/Login.dart';
 import 'package:round_2_start/Pages/Login/Register.dart';
@@ -23,7 +25,6 @@ void main() {
   );
 }
 
-/////////////////////////////////tozihat
 class ToDoApp extends StatefulWidget {
   @override
   _ToDoAppState createState() => _ToDoAppState();
@@ -33,15 +34,14 @@ class _ToDoAppState extends State<ToDoApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'To Do App',
+      title: 'Tik Task',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'BKoodak',
         primaryColor: MainProvider.PrimaryColor,
       ),
-      home: Directionality(
-          textDirection: TextDirection.rtl, child: Splash()), //finaly
-      // home: Directionality(textDirection: TextDirection.rtl, child: Login()),
+      // home: Directionality(textDirection: TextDirection.rtl,child: Splash()),/*finaly*/
+      home: Directionality(textDirection: TextDirection.rtl, child: Home()),
     );
   }
 }

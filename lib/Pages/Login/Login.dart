@@ -14,12 +14,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  var phoneNumber = TextEditingController();
+  var UserName = TextEditingController();
   var password = TextEditingController();
   bool _passwordVisible = false;
   bool counterNumber = false;
   bool counterPassword = false;
-  String errorTextPhoneNumber = '';
+  String errorTextUserName = '';
   String errorTextPassword = '';
 
   @override
@@ -68,7 +68,7 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.07,
                 ),
-                /*PhoneNumber*/ Container(
+                /*UserName*/ Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(100)),
                   ),
@@ -87,11 +87,6 @@ class _LoginState extends State<Login> {
                         autofocus: true,
                         textAlignVertical: TextAlignVertical.center,
                         textAlign: TextAlign.right,
-                        keyboardType: TextInputType.phone,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          LengthLimitingTextInputFormatter(11)
-                        ],
                         style: TextStyle(
                           fontSize: 20,
                           color: MainProvider.BlackColor,
@@ -106,21 +101,15 @@ class _LoginState extends State<Login> {
                               borderRadius: BorderRadius.all(Radius.circular(
                                   MediaQuery.of(context).size.width * 0.5)),
                             ),
-                            hintText: 'شماره کاربری',
+                            hintText: 'نام کاربری',
                             hintStyle: TextStyle(
                                 fontSize: 20,
                                 color: MainProvider.SecondaryColor)),
-                        controller: phoneNumber,
+                        controller: UserName,
                         onSubmitted: (value) {},
                         onChanged: (value) {
                           setState(() {
-                            int phoneNumberLen0 =
-                                int.parse(phoneNumber.text[0]);
-                            int phoneNumberLen1 =
-                                int.parse(phoneNumber.text[1]);
-                            if ((phoneNumber.text).length == 11 &&
-                                phoneNumberLen0 == 0 &&
-                                phoneNumberLen1 == 9) {
+                            if ((UserName.text).length > 2) {
                               counterNumber = true;
                             } else {
                               counterNumber = false;
@@ -134,7 +123,7 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: Text(
-                    errorTextPhoneNumber,
+                    errorTextUserName,
                     style: TextStyle(color: Colors.red, fontSize: 12),
                   ),
                 ),
@@ -157,10 +146,10 @@ class _LoginState extends State<Login> {
                         textAlignVertical: TextAlignVertical.center,
                         textAlign: TextAlign.right,
                         obscureText: !_passwordVisible,
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          LengthLimitingTextInputFormatter(11)
+                          LengthLimitingTextInputFormatter(5)
                         ],
                         style: TextStyle(
                           fontSize: 20,
@@ -195,13 +184,8 @@ class _LoginState extends State<Login> {
                         controller: password,
                         onChanged: (value) {
                           setState(() {
-                            // int phoneNumberLen0 = int.parse(password.text[0]);
-                            // int phoneNumberLen1 = int.parse(password.text[1]);
-
-                            if ((password.text).length == 11
-                                //&& phoneNumberLen0 == 0 &&
-                                // phoneNumberLen1 == 9
-                                ) {
+                            // int UserNameLen0 = int.parse(password.text[0]);
+                            if ((password.text).length == 5 ) {
                               counterPassword = true;
                             } else {
                               counterPassword = false;
@@ -228,14 +212,11 @@ class _LoginState extends State<Login> {
                       ? MainProvider.WhiteColor
                       : MainProvider.WhiteColor,
                   onPressed: () {
-                    // Navigator.pop(context);
-
-                    errorTextPhoneNumber = '';
+                    errorTextUserName = '';
                     errorTextPassword = '';
                     if (counterNumber == false) {
                       setState(() {
-                        errorTextPhoneNumber =
-                            'شماره تماس باید به درستی وارد شود';
+                        errorTextUserName = 'نام کاربری باید به درستی وارد شود';
                       });
                       // Navigator.pop(context);
                     } else if (counterPassword == false) {
@@ -247,7 +228,7 @@ class _LoginState extends State<Login> {
                     } else {
                       LoadingModal.show(context);
                       Future.delayed(const Duration(milliseconds: 5000), () {
-                        MainProvider.UserName = phoneNumber.text;
+                        MainProvider.UserName = UserName.text;
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Home()));
                       });
