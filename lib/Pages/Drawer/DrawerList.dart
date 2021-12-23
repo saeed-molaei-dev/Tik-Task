@@ -8,7 +8,7 @@ import 'package:round_2_start/Pages/Home.dart';
 import 'package:round_2_start/Pages/Login/Login.dart';
 import 'package:round_2_start/Pages/Menu/AddNewActivity.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
-import 'package:animated_rotation/animated_rotation.dart' as prefix;
+// import 'package:animated_rotation/animated_rotation.dart' as prefix;
 import 'package:flutter/src/widgets/implicit_animations.dart' as prefix;
 
 class DrawerList extends StatefulWidget {

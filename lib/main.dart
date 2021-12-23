@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:round_2_start/Forlater/Forlater.dart';
+import 'package:round_2_start/Forlater/PersianDate.dart';
 import 'package:round_2_start/Pages/ComingSoon.dart';
 import 'package:round_2_start/Pages/Drawer/DrawerList.dart';
 import 'package:round_2_start/Pages/Home.dart';
@@ -40,8 +42,9 @@ class _ToDoAppState extends State<ToDoApp> {
         fontFamily: 'BKoodak',
         primaryColor: MainProvider.PrimaryColor,
       ),
-      // home: Directionality(textDirection: TextDirection.rtl,child: Splash()),/*finaly*/
-      home: Directionality(textDirection: TextDirection.rtl, child: Home()),
+      home: Directionality(textDirection: TextDirection.rtl,child: Splash()),/*finaly*/
+      // home: Directionality(
+          // textDirection: TextDirection.rtl, child: PersianDatePickersExample()),
     );
   }
 }

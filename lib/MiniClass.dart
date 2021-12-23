@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:round_2_start/Pages/ComingSoon.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
 
 /*CustomButton*/
@@ -38,6 +39,63 @@ class CustomButton extends StatelessWidget {
             )),
       ),
     ]);
+  }
+}
+
+/*CustomCheckBox*/
+class RememberCheckBox extends StatefulWidget {
+  final String title;
+  final void Function() onPressed;
+
+  RememberCheckBox({required this.title, required this.onPressed});
+
+  @override
+  State<RememberCheckBox> createState() => _RememberCheckBoxState();
+}
+
+class _RememberCheckBoxState extends State<RememberCheckBox>
+    with SingleTickerProviderStateMixin {
+  bool CheckBoxValue = false;
+
+  @override
+  void initState() {
+    super.initState();
+    CheckBoxValue = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () => widget.onPressed(),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            TextButton(
+              style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
+              onPressed: () => widget.onPressed(),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    color: 1 == true && 2 == true
+                        ? MainProvider.WhiteColor
+                        : MainProvider.PrimaryColor),
+              ),
+            ),
+            Checkbox(
+              splashRadius: 0,
+              activeColor: MainProvider.RedColor,
+              value: CheckBoxValue,
+              onChanged: (bool? valueE) {
+                setState(() {
+                  CheckBoxValue = valueE!;
+                  print(valueE);
+                });
+              },
+            ),
+          ],
+        ));
   }
 }
 
@@ -139,6 +197,22 @@ class LoadingModal {
               ),
             ]),
       ),
+      context: context,
+    );
+  }
+}
+
+/*RememberModal*/
+class RememberModal {
+  static void show(BuildContext context) {
+    showDialog(
+      barrierDismissible: false,
+      builder: (context) => new AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          content: Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: ComingSoon())),
       context: context,
     );
   }

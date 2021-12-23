@@ -51,7 +51,7 @@ class _ComingSoonState extends State<ComingSoon> {
                   Text(
                 'این صفحه\nبه زودی\nدر دسترس\nخواهد بود\n:)',
                 style:
-                    TextStyle(fontSize: 50, color: MainProvider.PrimaryColor),
+                    TextStyle(fontSize: 25, color: MainProvider.PrimaryColor),
               ),
             ),
           ),

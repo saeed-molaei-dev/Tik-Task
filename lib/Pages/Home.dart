@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:round_2_start/Pages/Drawer/DrawerList.dart';
-import 'package:animated_rotation/animated_rotation.dart';
+// import 'package:animated_rotation/animated_rotation.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
 
 class Home extends StatefulWidget {

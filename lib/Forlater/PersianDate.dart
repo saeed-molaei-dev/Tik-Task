@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:persian_datetimepickers/persian_datetimepickers.dart';
+// import 'package:persian_datetimepickers/persian_datetimepickers.dart';
 
 class PersianDatePickersExample extends StatefulWidget {
   // const PersianDatePickersExample({Key? key}) : super(key: key);
@@ -53,15 +53,15 @@ class _PersianDatePickersExampleState extends State<PersianDatePickersExample> {
               ),
               ListTile(
                 title: Text('Picked time:'),
-                trailing: _pickedTime == null
-                    ? null
-                    : Text(_pickedTime!.toFancyString()),
+                // trailing: _pickedTime == null
+                //     ? null
+                //     : Text(_pickedTime!.toFancyString()),
                 onTap: () async {
-                  final TimeOfDay? time = await showPersianTimePicker(
-                    context: context,
-                  );
+                  // final TimeOfDay? time = await showPersianTimePicker(
+                  //   context: context,
+                  // );
                   setState(() {
-                    _pickedTime = time;
+                    // _pickedTime = time;
                   });
                 },
               ),
@@ -70,18 +70,18 @@ class _PersianDatePickersExampleState extends State<PersianDatePickersExample> {
                 title: _pickedDate == null
                     ? Text('Pick a date')
                     : Text('Picked date:'),
-                trailing: _pickedDate == null
-                    ? null
-                    : Text(
-                        _pickedDate!.toFancyString(),
-                      ),
+                // trailing: _pickedDate == null
+                    // ? null
+                    // : Text(
+                        // _pickedDate!.toFancyString(),
+                      // ),
                 onTap: () async {
-                  final DateTime? date = await showPersianDatePicker(
-                    context: context,
-                    color: Colors.red,
-                  );
+                  // final DateTime? date = await showPersianDatePicker(
+                  //   context: context,
+                  //   color: Colors.red,
+                  // );
                   setState(() {
-                    _pickedDate = date;
+                    // _pickedDate = date;
                   });
                 },
               ),
