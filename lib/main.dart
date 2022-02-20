@@ -22,17 +22,17 @@ void main() {
           create: (_) => MainProvider(),
         )
       ],
-      child: ToDoApp(),
+      child: TikTask(),
     ),
   );
 }
 
-class ToDoApp extends StatefulWidget {
+class TikTask extends StatefulWidget {
   @override
-  _ToDoAppState createState() => _ToDoAppState();
+  _TikTaskState createState() => _TikTaskState();
 }
 
-class _ToDoAppState extends State<ToDoApp> {
+class _TikTaskState extends State<TikTask> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,9 +42,9 @@ class _ToDoAppState extends State<ToDoApp> {
         fontFamily: 'BKoodak',
         primaryColor: MainProvider.PrimaryColor,
       ),
-      home: Directionality(textDirection: TextDirection.rtl,child: Splash()),/*finaly*/
-      // home: Directionality(
-          // textDirection: TextDirection.rtl, child: PersianDatePickersExample()),
+      home: Directionality(
+          textDirection: TextDirection.rtl, child: Splash()), /*finaly*/
+      // home: Directionality(textDirection: TextDirection.rtl, child: Login()),
     );
   }
 }

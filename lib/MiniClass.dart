@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:round_2_start/Pages/ComingSoon.dart';
 import 'package:round_2_start/Provider/MainProvider.dart';
+import 'package:round_2_start/main.dart';
 
 /*CustomButton*/
 class CustomButton extends StatelessWidget {
@@ -73,26 +74,32 @@ class _RememberCheckBoxState extends State<RememberCheckBox>
           children: [
             TextButton(
               style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
+                  minimumSize: Size(0, 0),
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.centerLeft),
               onPressed: () => widget.onPressed(),
               child: Text(
                 widget.title,
                 style: TextStyle(
-                    color: 1 == true && 2 == true
-                        ? MainProvider.WhiteColor
-                        : MainProvider.PrimaryColor),
+                    fontSize: 16,
+                    color: CheckBoxValue == true && true == true
+                        ? MainProvider.PrimaryColor
+                        : MainProvider.SecondaryColor),
               ),
             ),
-            Checkbox(
-              splashRadius: 0,
-              activeColor: MainProvider.RedColor,
-              value: CheckBoxValue,
-              onChanged: (bool? valueE) {
-                setState(() {
-                  CheckBoxValue = valueE!;
-                  print(valueE);
-                });
-              },
+            SizedBox(
+              width: 25,
+              child: Checkbox(
+                splashRadius: 0,
+                activeColor: MainProvider.RedColor,
+                value: CheckBoxValue,
+                onChanged: (bool? valueE) {
+                  setState(() {
+                    CheckBoxValue = valueE!;
+                    print(valueE);
+                  });
+                },
+              ),
             ),
           ],
         ));

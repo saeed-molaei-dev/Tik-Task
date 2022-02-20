@@ -31,7 +31,13 @@ dependencies:
     sdk: flutter
   provider:
   # shamsi_date:
-  # persian_datetimepickers:
+  persian_datetimepickers:
+  persian_datetime_picker:
+  # persian_calendar:
+  persian_flutter:
+  jalali_table_calendar:
+  jalali_calendar:
+  shamsi_date:
   # persian_datetime_picker:
   # loop_page_view:
   # jalali_calendar:

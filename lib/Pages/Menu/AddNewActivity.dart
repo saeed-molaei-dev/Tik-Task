@@ -84,7 +84,7 @@ class _AddNewActivityState extends State<AddNewActivity> {
                             width: 300,
                             height: 300,
                             decoration: BoxDecoration(
-                                color: Colors.black12,
+                                color: Colors.white12,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(300))),
                             child: Text(' '),
@@ -244,12 +244,8 @@ class _AddNewActivityState extends State<AddNewActivity> {
                     color: MainProvider.RedColor,
                   ),
                   /*یادآوری*/ Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        'تکرار یادآوری:',
-                        style: TextStyle(fontWeight: FontWeight.w900),
-                      ),
                       RememberCheckBox(
                         onPressed: () {
                           RememberModal.show(context);
