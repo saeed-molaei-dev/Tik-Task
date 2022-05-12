@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, unnecessary_new, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
+// import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:round_2_start/MiniClass.dart';
 import 'package:round_2_start/Pages/ComingSoon.dart';
 import 'package:round_2_start/Pages/Home.dart';

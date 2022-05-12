@@ -49,10 +49,3 @@ class _TikTaskState extends State<TikTask> {
   }
 }
 
-
-// بهش GlobalKey بده بعد 
-// WidgetsBinding!.instance.addPostFrameCallback((_) {
-//    RenderBox  renderBox =  gKey.currentContext.findRenderObject()  as RenderBox;
-
-// Size size =  renderBox.size;
-// })
